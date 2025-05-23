@@ -6,6 +6,8 @@ This is the official code repository for the paper: Towards General Continuous M
 
 CoMEM introduces a novel approach for integrating multimodal and multilingual knowledge into Vision-Language Models (VLMs) using a compact and efficient continuous memory—a small set of dense embeddings. Unlike traditional retrieval-based methods, CoMEM leverages the VLM itself as a memory encoder, fine-tuned with just **1.2%** of the model’s parameters and a lightweight corpus of **15.6K** self-synthesized samples. This design enables CoMEM to encode arbitrary knowledge into only 8 continuous embeddings, improving performance on complex multimodal reasoning tasks. Importantly, the base VLM remains frozen at inference, making our memory module **plug-and-play** and easily adaptable across tasks and domains.
 
+<img width="1728" alt="image" src="https://github.com/WenyiWU0111/CoMEM/blob/main/images/case_study.jpg">
+
 ## 📦 Requirements
 To get started, please create a new environment and install the required dependencies:
 
