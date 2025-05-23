@@ -2,6 +2,9 @@
 
 This is the official code repository for the paper: Towards General Continuous Memory for Vision-Language Models.
 
+<img width="1728" alt="image" src="https://github.com/WenyiWU0111/CoMEM/blob/main/images/framework.jpg">
+
+CoMEM introduces a novel approach for integrating multimodal and multilingual knowledge into Vision-Language Models (VLMs) using a compact and efficient continuous memory—a small set of dense embeddings. Unlike traditional retrieval-based methods, CoMEM leverages the VLM itself as a memory encoder, fine-tuned with just **1.2%** of the model’s parameters and a lightweight corpus of **15.6K** self-synthesized samples. This design enables CoMEM to encode arbitrary knowledge into only 8 continuous embeddings, improving performance on complex multimodal reasoning tasks. Importantly, the base VLM remains frozen at inference, making our memory module **plug-and-play** and easily adaptable across tasks and domains.
 
 ## 📦 Requirements
 To get started, please create a new environment and install the required dependencies:
@@ -36,11 +39,14 @@ After training, remember to merge the LoRA checkpoint with the base model using 
 bash scripts/train/merge_lora.sh
 ```
 
+**Note:** Due to instability issues with ```transformers==4.49.0```, we have made a minor modification to ```src/transformers/models/qwen2_5_vl/modeling_qwen2_5_vl.py```. If you encounter errors related to Qwen2.5-VL when using this version of Transformers, please replace the file with our patched version available [here](https://github.com/WenyiWU0111/CoMEM/blob/main/patch/modeling_qwen2_5_vl.py).
+
+
 ## 🤗 Checkpoints
 We release our checkpoints to Huggingface. You can access them through the following links:
-- CoMEM with Qwen2.5-VL(VLM):
-- CoMEM with Qwen2-VL(VLM):
-- CoMEM with Qwen2.5-Instruct(LLM):
+- [CoMEM with Qwen2.5-VL(VLM)](https://huggingface.co/WenyiWU0111/continuous-memory-qwen2.5-800)
+- [CoMEM with Qwen2-VL(VLM)](https://huggingface.co/WenyiWU0111/continuous-memory-qwen2-800)
+- [CoMEM with Qwen2.5-Instruct(LLM)](https://huggingface.co/WenyiWU0111/continuous-memory-qwen2.5-llm)
 ## 🔍 Inference
 
 We provide scripts for running inference with baseline, vanilla RAG, and CoMEM settings across **8** benchmarks and **10+** models. Refer to the respective bash files for detailed usage.
