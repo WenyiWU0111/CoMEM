@@ -79,6 +79,8 @@ if __name__ == "__main__":
     parser.add_argument("--similar_num", type=int, default=10, help="number of similar images")
     parser.add_argument("--query_dataset", type=str, default="Infoseek", help="query dataset")
     parser.add_argument("--query_dataset_hf_path", type=str, default="", help="query dataset hf path")
+    parser.add_argument("--query_img_embedding_path", type=str, default="/home/dataset/infoseek/infoseek_val_img_embeddings.npy", help="query image embedding path")
+    parser.add_argument("--query_img_ids_path", type=str, default="/home/dataset/infoseek/infoseek_val_img_names.npy", help="query image ids path")
     parser.add_argument("--retrieval_dir", type=str, default="/home/dataset/infoseek/infoseek_finetuning/clip", help="retrieval path")
     
     
@@ -104,8 +106,8 @@ if __name__ == "__main__":
     chunk_idxs = [0, 1, 2, 3, 4]
     inference_embedding, inference_csvs = get_inference_embeddings(tsv_idxs, chunk_idxs)
     inference_embedding = inference_embedding.astype(np.float32)
-    query_embedding = np.load("/home/dataset/infoseek/infoseek_val_img_embeddings.npy", allow_pickle=True)
-    query_img_ids = np.load("/home/dataset/infoseek/infoseek_val_img_names.npy", allow_pickle=True)
+    query_embedding = np.load(args.query_img_embedding_path, allow_pickle=True)
+    query_img_ids = np.load(args.query_img_ids_path, allow_pickle=True)
     d = inference_embedding.shape[1]
     
     # Initialize FAISS index on GPU
