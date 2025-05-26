@@ -1,6 +1,6 @@
 # CoMEM: Towards General Continuous Memory for Vision-Language Models
 
-This is the official code repository for the paper: Towards General Continuous Memory for Vision-Language Models.
+This is the official code repository for the paper: [Towards General Continuous Memory for Vision-Language Models](https://arxiv.org/abs/2505.17670).
 
 <img width="1728" alt="image" src="https://github.com/WenyiWU0111/CoMEM/blob/main/images/framework.jpg">
 
