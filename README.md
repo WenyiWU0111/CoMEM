@@ -20,6 +20,10 @@ pip install -r requirements.txt
 ## 📚 Retrival Data Base
 Our knowledge base is constructed using the [Wikipedia-based Image-Text (WIT)](https://github.com/google-research-datasets/wit) dataset. We provide a pre-built FAISS index of CLIP embeddings over WIT. You can use the provided scripts in the folder ```CoMEM/retrieval``` to reconstruct the database using this index.
 
+For convenience, we also release the precomputed retrieval results for each dataset, allowing users to replicate our experiments efficiently. 
+
+[Download Retrieval Result](https://ucsdcloud-my.sharepoint.com/:f:/g/personal/zis018_ucsd_edu/El2vybrLjTxEqCzxMvPyPycBAplj0DUa5Jtvo--rETDK_w?e=ee8VJ7)
+
 ## 🔥 Training
 
 The Memory Encoder in CoMEM is trained on a mixture of datasets, including: [Infoseek](https://github.com/edchengg/infoseek_eval), [EVQA](https://github.com/google-research/google-research/tree/master/encyclopedic_vqa), [OKVQA](https://okvqa.allenai.org/), and multi-lingual Infoseek. Each training sample is paired with the top-3 most relevant retrieved image-text pairs. Download our training data [here](https://drive.google.com/file/d/1LDBtzAyHYeDPqsaK9OlKJqXhr3pTAi2E/view?usp=sharing).
